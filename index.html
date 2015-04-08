@@ -67,48 +67,6 @@ kernels, providing important security benefits.</p>
 FreeBSD 9.0 modified version of the nested kernel for x86-64.
 <a href="http://nestedkernel.org/PerspicuOS/">PerspicuOS</a>
 
-<h3>
-<a id="build-instructions" class="anchor" href="#build-instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build Instructions</h3>
-
-<p>!!!!!! These Are Under Construction and Require Testing !!!!!!</p>
-
-<p>Our current nested kernel implementation for x86-64 FreeBSD is called
-PerspicuOS.</p>
-
-<ol>
-<li>Install FreeBSD 9.0:
-<a href="http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/amd64/ISO-IMAGES/9.0/">http://ftp-archive.freebsd.org/pub/FreeBSD-Archive/old-releases/amd64/ISO-IMAGES/9.0/</a>
-</li>
-<li>In FreeBSD 9.0 System, clone the repo
-$ clone <a href="mailto:git@github.com">git@github.com</a>:nestedkernel/nestedkernel.git nestedkernel</li>
-<li>Build the nested kernel
-$ cd nestedkernel
-$ make</li>
-<li>Configure FreeBSD /etc/src.conf
-# This setting to build world without -Werror:
-NO_WERROR=
-# This setting to build kernel without -Werror:
-WERROR=
-# Set the library path to the nested kernel lib
-CFLAGS+=-I/PATH/TO/NESTEDKERNEL/include</li>
-<li>Make PerspicuOS: Use FreeBSD building instructions
-selecting the NK kernel configuration</li>
-<li>Install and Boot (you can use either the base harddrive or
-    a VM tool Like Qemu, VirtualBox, or VMWare)</li>
-</ol>
-
-<h3>
-  <a id="comment-on-code" class="anchor" href="#comment-on-code" aria-hidden="true">
-  <span class="octicon octicon-link"></span></a>Comment on PerspicuOS Repo</h3>
-  <p>
-    PerspicuOS was derived from a few other research projects and as such reflects 
-    an odd arangement of naming conventions and unused functionality. The 
-    nested kernel shared a similar interface as previous work using the SVA compiler 
-    based virtual machine (<a href="https://github.com/jtcriswell/SVA">SVA Github</a>), 
-    but only includes a small subset of the entire interface, namely the MMU,
-    and modifies the functionality of the internal policies for page-translation updates.
-  </p>
-
       </section>
     </div>
 
